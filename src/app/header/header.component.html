@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-xl-7">
+        <a routerLink="/front-page" class="link-unstyled"><h3>INŻYNIERKA 0.1</h3></a>
+    </div>
+        <div *ngIf='auth.user$ | async as user; else glogin' class="col-xl-5" style="float: right;">
+            Witaj {{ user.displayName }} <img src="{{ user.photoURL }}" width="40px" style="border: 1px solid #303030 ;">
+            <button type="button" style="margin-left: 15px;" class="btn btn-primary btn-sm" (click)="auth.signOut()">Wyloguj się</button>
+        </div>
+        <div class="col-xl-5" style="float: right;">
+            <ng-template #glogin>
+                  <button type="button" class="btn btn-primary btn-sm" style="float: right;  height: 3.5vh;" (click)="auth.googleSignin()">Zaloguj za pomocą konta Google</button>
+            </ng-template>
+        </div>
+                
+      
+       
+    
+        
+ <!--
+    <button type="button" style="margin-right: 10px;" class="btn btn-primary btn-mid" routerLink="/front-page">Start</button>
+    <button type="button" style="margin-right: 10px;" class="btn btn-primary btn-mid" routerLink="/register">Zaloguj/Zarejestruj</button>
+    <button type="button" style="margin-right: 10px;" class="btn btn-primary btn-mid" routerLink="/formularz">Formularz</button>
+    <button type="button" style="margin-right: 10px;" class="btn btn-primary btn-mid" routerLink="/lista/wszyscy">Lista</button>
+    <button type="button" class="btn btn-primary btn-mid" routerLink="/wizytowka">Wizytowka</button>
+     {{ user | json }}
+     {{ user.email }} 
+     {{ user.uid }} 
+-->
+
+</div>
+<hr>

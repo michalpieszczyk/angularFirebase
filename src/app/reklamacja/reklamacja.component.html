@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="col-xl-3" style="float: left;" >
+        <h3>Reklamacje</h3>
+    </div>
+
+    <button type="button" style="margin-right: 10px;" class="btn btn-primary btn-mid" routerLink="/reklamacja" >Wszystkie</button>
+    <button type="button" style="margin-right: 10px;" class="btn btn-primary btn-mid" routerLink="/reklamacja/nowe">Nowe</button>
+    <button type="button" style="margin-right: 10px;" class="btn btn-primary btn-mid" routerLink="/reklamacja/trwajace">Trwające</button>
+    <button type="button" style="margin-right: 10px;" class="btn btn-primary btn-mid" routerLink="/reklamacja/zakonczone">Zakończone</button>
+    <button type="button" style="margin-right: 10px;" class="btn btn-success btn-mid" routerLink="/edytujreklamacje/">Dodaj Nową</button>
+    <br>  <br>
+
+    <h5 *ngIf="wybranakategoria">Filtrowanie: {{wybranakategoria}}</h5>
+    <h5 *ngIf="!wybranakategoria">Filtrowanie: wszystkie</h5>
+    <br>
+    <ul>
+        <ng-container *ngFor="let item of items | async" >
+             <li  *ngIf="!wybranakategoria || item.status === wybranakategoria" class="list-group-item list-group-item-info">
+                    <b>Numer zamówienia: {{ item.numer_zamowienia }}</b><br>
+                    Status: {{ item.status }}<br>
+                    Uwagi: {{ item.uwagi }}<br>
+                    Data zgłoszenia: {{item.data.toMillis() | date:'dd/MM/yyyy hh:mm:ss a'}}<br>
+                    <button type="button" style="margin-right: 10px;" class="btn btn-warning btn-sm" [routerLink]="['/edytujreklamacje', item.numer_zamowienia]">Edytuj zgłoszenie</button>
+                    <a style="margin-right: 10px;" class="btn btn-light btn-sm" href="https://www.baselinker.com/">Przejdź do zamówienia w Baselinker</a>      
+            </li>
+        </ng-container> 
+    </ul>
+</div>

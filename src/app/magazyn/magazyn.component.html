@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="col-xl-3" style="float: left;" >
+        <h3>Magazyn Zwrotów</h3>
+    </div>
+
+    <button type="button" style="margin-right: 10px;" class="btn btn-primary btn-mid" routerLink="/magazyn">Wszystkie</button>
+    <button type="button" style="margin-right: 10px;" class="btn btn-primary btn-mid" routerLink="/magazyn/uszkodzony">Uszkodzone</button>
+    <button type="button" style="margin-right: 10px;" class="btn btn-primary btn-mid" routerLink="/magazyn/naprawiony">Naprawione</button>
+    <button type="button" style="margin-right: 10px;" class="btn btn-success btn-mid" routerLink="/edytujprodukt/">Dodaj Nowy</button>
+    <br>  <br>
+
+    <h5 *ngIf="wybranakategoria">Filtrowanie: {{wybranakategoria}}</h5>
+    <h5 *ngIf="!wybranakategoria">Filtrowanie: wszystkie</h5>
+    <br>
+    <ul>
+        <ng-container *ngFor="let item of items | async" >
+             <li  *ngIf="!wybranakategoria || item.stan === wybranakategoria" class="list-group-item list-group-item-info">
+                    <b>Produkt: {{ item.nazwa }}</b><br>
+                    Ilość: {{ item.sztuk }}<br>
+                    Stan: {{ item.stan }}<br>
+                    Cena zakupu: {{ item.cena_zakupu }}<br>
+                    Notatka: {{ item.notatka }}<br>
+                    <button type="button" style="margin-right: 10px;" class="btn btn-light btn-sm" [routerLink]="['/edytujprodukt', item.numer_zamowienia]">Edytuj produkt</button>
+            </li>
+        </ng-container> 
+    </ul>
+</div>

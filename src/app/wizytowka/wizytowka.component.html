@@ -1,0 +1,80 @@
+<div class="container">
+    <h2>{{ wizytowka.company_name }}</h2>
+    {{ wizytowka.category }}
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card" style="width: 26rem;">
+                <img class="card-img-top"  src="https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/116687312_2710746839207932_2171222883452501880_n.jpg?_nc_cat=103&ccb=2&_nc_sid=e3f864&_nc_ohc=Z8V37JAuaRQAX9lEUqX&_nc_ht=scontent-frt3-2.xx&oh=a724eda237cd6246395bb6113c63b3b7&oe=6020C2E4" alt="Obraz">
+            </div>
+        </div>
+
+        <div class="col-xl-6">
+        <h4>Lokalizacja</h4>
+        {{ wizytowka.post_code }} {{ wizytowka.city }} {{ wizytowka.address }}
+        <h4>Telefon</h4>{{ wizytowka.phone_number }}
+        <h4>Instagram</h4>{{ wizytowka.instagram_url }}
+        <h4>Facebook</h4>{{ wizytowka.facebook_url }}
+        <hr>
+        <div class="row">
+            <div class="col-xl-2">
+                Poniedziałek
+            </div>
+            <div class="col-xl-8">
+                {{ wizytowka.hours_mon_from }} - {{ wizytowka.hours_mon_till }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-2">
+                Wtorek
+            </div>
+            <div class="col-xl-6">
+                {{ wizytowka.hours_tue_from }} - {{ wizytowka.hours_tue_from }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-2">
+                Środa
+            </div>
+            <div class="col-xl-6">
+                {{ wizytowka.hours_wed_from }} - {{ wizytowka.hours_wed_from }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-2">
+                Czwartek
+            </div>
+            <div class="col-xl-6">
+                {{ wizytowka.hours_thu_from }} - {{ wizytowka.hours_thu_from }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-2">
+                Piątek
+            </div>
+            <div class="col-xl-6">
+                {{ wizytowka.hours_fri_from }} - {{ wizytowka.hours_fri_from }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-2">
+                Sobota
+            </div>
+            <div class="col-xl-6">
+                {{ wizytowka.hours_sat_from }} - {{ wizytowka.hours_sat_from }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-2">
+                Niedziela
+            </div>
+            <div class="col-xl-6">
+                {{ wizytowka.hours_sun_from }} - {{ wizytowka.hours_sun_from }}
+            </div>
+        </div>
+        </div>
+
+
+    </div>
+</div>

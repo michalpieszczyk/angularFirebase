@@ -1,0 +1,36 @@
+.row{
+    
+    margin-left: 25%;
+    margin-right: auto;
+    margin-bottom: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+
+.btnRegAndLog{
+
+    cursor: pointer;
+    text-decoration: white;
+    width: 200px;
+    height: 40px;
+    background-color:lightgrey;
+    border: none;
+    border-radius: 5px;
+}
+
+.formReg{
+    
+    padding: 20px;
+    border-radius: 20px;
+    border:5px solid #202020;
+      
+}
+
+.formLog{
+    
+    padding: 20px;
+    border-radius: 20px;
+    border:5px solid #202020;
+         
+}

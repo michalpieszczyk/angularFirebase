@@ -1,0 +1,236 @@
+<div class="container">
+<form [formGroup]="companyInfo" (ngSubmit)="UpdateCompanyInfo()">
+    <h2>Zarządzaj stroną</h2>
+    <p>Uzupełnij dane firmy {{pobranaWizytowka.company_name}}</p>
+    <p>ID firmy: {{pobranaWizytowka.id}}</p>
+    <hr>
+    <div class="row">
+           
+        <div class="col-xl-6">
+
+            <div class="form-group">
+                <label for="company_name">Nazwa firmy</label>
+                <input type="text" id="company_name" formControlName="company_name" class="form-control" value="{{pobranaWizytowka.company_name}}" required>
+            </div>
+
+            <div class="form-group">
+                <label class="kategoria"  for="kategoria">Kategoria</label>
+                <select formControlName="category" [(ngModel)]=pobranaWizytowka.category class="custom-select my-1 mr-sm-2" id="kategoria">
+                 <!--<option *ngFor="let opt of question.options" [value]="opt.key" [selected]="opt.selected == true">{{opt.selected+opt.value}}</option>-->
+                  <option value="fryzjer" >Fryzjer</option>
+                  <option value="hydraulik">Hydraulik</option>
+                  <option value="kosmetyczka">Kosmetyczka</option>
+                  <option value="weterynarz">Weterynarz</option>
+                </select>
+          </div>
+
+            <div class="form-group">
+                <label for="miejscowosc">Miejscowość</label>
+                <input type="text" id="miejscowosc" formControlName="city" class="form-control" value="{{pobranaWizytowka.city}}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="kodPocztowy">Kod Pocztowy</label>
+                <input type="text" id="kodPocztowy" class="form-control" formControlName="post_code" value="{{pobranaWizytowka.post_code}}" maxlength="6" required>
+            </div>
+
+            <div class="form-group">
+                <label for="adres">Adres</label>
+                <input type="text" id="adres" class="form-control" formControlName="address" value="{{pobranaWizytowka.address}}" required>
+            </div>
+
+        </div>
+
+        <div class="col-xl-6">
+
+            <div class="form-group">
+                <label for="numerTelefonu">Numer Telefonu</label>
+                <input type="text" id="numerTelefonu" class="form-control" formControlName="phone_number" maxlength="12" value="{{pobranaWizytowka.phone_number}}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="facebook">Facebook</label>
+                <input type="text" id="facebook" value="{{pobranaWizytowka.facebook_url}}" formControlName="facebook_url" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="instagram">Instagram</label>
+                <input type="text" id="instagram" value="{{pobranaWizytowka.instagram_url}}" formControlName="instagram_url" class="form-control">
+            </div>
+            <br>
+            <br>
+            <br>
+            
+
+
+        </div>
+    </div>
+<hr>
+
+    <p>Uzupełnij godziny otwarcia </p>
+            <hr>
+    <div class="row">
+            
+        <div class="col-xl-2">
+            <div class="form-group">
+                <p>Dzień tygodnia</p>
+            </div>
+
+        </div>
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <p style="text-align: center;">od</p>
+            </div>
+        </div>
+
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <p style="text-align: center;">do</p>  
+            </div>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-xl-2">
+            <div class="form-group">
+                <label>Poniedziałek</label>
+            </div>
+
+        </div>
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="poniedzialekOd" class="form-control" formControlName="hours_mon_from" value="{{pobranaWizytowka.hours_mon_from}}">
+            </div>
+        </div>
+
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="poniedzialekDo" class="form-control" formControlName="hours_mon_till" value="{{pobranaWizytowka.hours_mon_till}}">
+            </div>
+        </div>
+    </div> 
+
+    <div class="row">
+        <div class="col-xl-2">
+            <div class="form-group">
+                <label>Wtorek</label>
+            </div>
+
+        </div>
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="wtorekOd" class="form-control"  formControlName="hours_tue_till" value="{{pobranaWizytowka.hours_tue_till}}">
+            </div>
+        </div>
+
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="wtorekDo" class="form-control" formControlName="hours_tue_till" value="{{pobranaWizytowka.hours_tue_till}}">
+            </div>
+        </div>
+    </div> 
+
+    <div class="row">
+        <div class="col-xl-2">
+            <div class="form-group">
+                <label>Środa</label>
+            </div>
+
+        </div>
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="srodaOd" class="form-control" formControlName="hours_wed_till" value="{{pobranaWizytowka.hours_wed_till}}">
+            </div>
+        </div>
+
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="srodaDo" class="form-control" formControlName="hours_wed_till" value="{{pobranaWizytowka.hours_wed_till}}">
+            </div>
+        </div>
+    </div> 
+
+    <div class="row">
+        <div class="col-xl-2">
+            <div class="form-group">
+                <label>Czwartek</label>
+            </div>
+
+        </div>
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="czwartekOd" class="form-control" formControlName="hours_thu_till" value="{{pobranaWizytowka.hours_thu_till}}">
+            </div>
+        </div>
+
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="czwartekDo" class="form-control" formControlName="hours_thu_till" value="{{pobranaWizytowka.hours_thu_till}}">
+            </div>
+        </div>
+    </div> 
+
+    <div class="row">
+        <div class="col-xl-2">
+            <div class="form-group">
+                <label>Piątek</label>
+            </div>
+
+        </div>
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="piatekOd" class="form-control" formControlName="hours_fri_till" value="{{pobranaWizytowka.hours_fri_till}}">
+            </div>
+        </div>
+
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="piatekDo" class="form-control" formControlName="hours_fri_till" value="{{pobranaWizytowka.hours_fri_till}}">
+            </div>
+        </div>
+    </div> 
+
+    <div class="row">
+        <div class="col-xl-2">
+            <div class="form-group">
+                <label>Sobota</label>
+            </div>
+
+        </div>
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="sobotaOd" class="form-control" formControlName="hours_sat_till" value="{{pobranaWizytowka.hours_sat_till}}">
+            </div>
+        </div>
+
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="sobotaDo" class="form-control" formControlName="hours_sat_till" value="{{pobranaWizytowka.hours_sat_till}}">
+            </div>
+        </div>
+    </div> 
+
+    <div class="row">
+        <div class="col-xl-2">
+            <div class="form-group">
+                <label>Niedziela</label>
+            </div>
+
+        </div>
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="niedzielaOd" class="form-control" formControlName="hours_sun_till" value="{{pobranaWizytowka.hours_sun_till}}">
+            </div>
+        </div>
+
+        <div class="col-xl-2">
+            <div class="form-group-hours">
+                <input type="time" id="niedzielaDo" class="form-control" formControlName="hours_sun_till" value="{{pobranaWizytowka.hours_sun_till}}">
+            </div>
+        </div>
+        <br>
+        
+    </div> 
+    <br>
+    <button class="btn btn-primary" type="submit">Zapisz i zaktualizuj dane firmy</button>
+</form>
+</div>

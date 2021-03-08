@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Wybrana kategoria: {{wybranakategoria}}</h2>
+    <br>
+    <ul>
+        <ng-container *ngFor="let el of lista" >
+             <li  class="list-group-item list-group-item-action">
+                <a [routerLink]="['/wizytowka', el.id]" class="link-unstyled"><h5>{{ el.company_name }}</h5> </a>
+          
+            <!-- *ngIf="el.category == wybranakategoria" -->
+        </li>
+    </ng-container> 
+    </ul>
+    <hr>
+   
+</div>

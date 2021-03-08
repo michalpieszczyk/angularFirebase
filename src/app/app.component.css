@@ -1,0 +1,59 @@
+.container {
+  margin-top: 30px;
+  min-height: 500px;
+}
+
+.form-group {
+  width: 200px;
+}
+
+.form-group-hours {
+  width: 90px;
+}
+
+body{
+  background-color: white;
+}
+
+.link-unstyled, .link-unstyled:link, .link-unstyled:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* Styles for wrapping the search box */
+
+.main {
+  width: 50%;
+  margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.container2 {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centeredtxt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
