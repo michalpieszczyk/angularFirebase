@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { from, Observable } from 'rxjs';
 import { Reklamacja } from '../reklamacja/reklamacja';
 import 'rxjs/add/operator/map'
+import { identifierModuleUrl } from '@angular/compiler';
 
 
 
@@ -15,8 +16,12 @@ import 'rxjs/add/operator/map'
 })
 export class EdytujreklamacjeComponent implements OnInit {
 
-  wybranezamowienie = '';
+  wybranezamowienie = 'i9l4bqYbAAi2CKVlbBMY';
   public items: Observable<Reklamacja[]>;
+
+  public wybranareklamacja = new Reklamacja();
+
+  n = 0;
 
   private sub: any;
 
@@ -29,11 +34,10 @@ export class EdytujreklamacjeComponent implements OnInit {
         const data = a.payload.doc.data() as Reklamacja;
         data.id = a.payload.doc.id;
         return data;
-
-  })
+      })
     })
-
    }
+
 
 getItems(){
   return this.items;
@@ -42,12 +46,26 @@ getItems(){
 
 ngOnInit(): void {
   
-  
   this.sub = this.route.params.subscribe(params => 
     {
       this.wybranezamowienie = params['id'];   
     });
+    
+
+
+    this.items.forEach(element => {
+      element.forEach(n => {
+        if (this.wybranezamowienie == n.id)
+          {
+            this.wybranareklamacja = n;
+            //console.log(this.wybranareklamacja);
+          }
+        }
+        )
+    });
+
+ 
+
+
 }
-
-
 }
