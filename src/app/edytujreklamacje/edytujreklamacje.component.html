@@ -1,13 +1,7 @@
 <div class="container">
-    <ul *ngFor="let item of items | async" >
-        <li  class="collection-item">
-               Numer zamówienia: {{ item.id }}
-       </li>
-    </ul>
-
 
     <form [formGroup]="companyInfo" (ngSubmit)="UpdateCompanyInfo()">
-        <h2>Edytuj zgłoszenie reklamacyjne</h2><br>
+        <h2>Edytuj zgłoszenie reklamacyjne {{ wybranezamowienie }}</h2><br>
         <div class="row">
                
        

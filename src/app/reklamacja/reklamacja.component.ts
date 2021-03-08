@@ -15,7 +15,7 @@ import { EdytujreklamacjeComponent } from '../edytujreklamacje/edytujreklamacje.
 })
 export class ReklamacjaComponent implements OnInit {
 
-  public items: Observable<any[]>;
+  //public items: Observable<any[]>;
 
  
   wybranakategoria = '';
@@ -23,11 +23,23 @@ export class ReklamacjaComponent implements OnInit {
  
   @Input() sortowanie: any[];
 
-   constructor(private route: ActivatedRoute, private http: HttpClient, private firestore: AngularFirestore,private db: AngularFirestore){
-    this.items = db.collection('reklamacja').valueChanges();
-   }
+   //constructor(private route: ActivatedRoute, private http: HttpClient, private firestore: AngularFirestore,private db: AngularFirestore){
+   // this.items = db.collection('reklamacja').valueChanges(); }
 
+   public items: Observable<Reklamacja[]>;
 
+   constructor(private route: ActivatedRoute, private http: HttpClient, public firestore: AngularFirestore){
+   //  this.items = firestore.collection('reklamacja').valueChanges();
+    this.items = this.firestore.collection('reklamacja').snapshotChanges().map(changes => {
+       return changes.map(a => {
+         const data = a.payload.doc.data() as Reklamacja;
+         data.id = a.payload.doc.id;
+         return data;
+ 
+   })
+     })
+ 
+    }
   private sub: any;
 
   ngOnInit(): void {

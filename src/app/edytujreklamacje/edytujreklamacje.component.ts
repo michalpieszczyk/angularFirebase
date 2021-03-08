@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { from, Observable } from 'rxjs';
@@ -15,11 +15,12 @@ import 'rxjs/add/operator/map'
 })
 export class EdytujreklamacjeComponent implements OnInit {
 
-
+  wybranezamowienie = '';
   public items: Observable<Reklamacja[]>;
-  //items: Observable<any[]>;
 
-  //public reklamacja = new Reklamacja();
+  private sub: any;
+
+  @Input() sortowanie: any[];
 
   constructor(private route: ActivatedRoute, private http: HttpClient, public firestore: AngularFirestore){
   //  this.items = firestore.collection('reklamacja').valueChanges();
@@ -40,7 +41,12 @@ getItems(){
 
 
 ngOnInit(): void {
-
+  
+  
+  this.sub = this.route.params.subscribe(params => 
+    {
+      this.wybranezamowienie = params['id'];   
+    });
 }
 
 
