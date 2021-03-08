@@ -2,7 +2,7 @@
 
     <form [formGroup]="companyInfo" (ngSubmit)="UpdateCompanyInfo()">
         <h2>Edytuj zgłoszenie reklamacyjne {{ wybranezamowienie }}</h2><br>
-        {{wybranareklamacja.numer_zamowienia}}
+      
         <div class="row">
                
        
@@ -10,12 +10,12 @@
                 
                 <div class="form-group">
                     <label for="numer_zamowienia">Numer zamówienia</label>
-                    <input type="text" id="numer_zamowienia" formControlName="numer_zamowienia" class="form-control" value="" required>
+                    <input type="text" id="numer_zamowienia" formControlName="numer_zamowienia" class="form-control" value="  {{wybranareklamacja.numer_zamowienia}}" required>
                 </div>
     
                 <div class="form-group">
                     <label for="data">Data przyjęcia zgłoszenia</label>
-                    <input type="time" id="data" formControlName="data" class="form-control" value="" required>
+                    <input type="datetime" id="data" formControlName="data" class="form-control" value="  {{wybranareklamacja.data.toMillis() | date:'dd/MM/yyyy hh:mm:ss a'}}" required>
                 </div>
 
                 <div class="form-group">
