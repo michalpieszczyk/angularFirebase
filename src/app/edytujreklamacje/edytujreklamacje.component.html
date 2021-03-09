@@ -10,12 +10,12 @@
                 
                 <div class="form-group">
                     <label for="numer_zamowienia">Numer zamówienia</label>
-                    <input type="text" id="numer_zamowienia" formControlName="numer_zamowienia" class="form-control" value="  {{wybranareklamacja.numer_zamowienia}}" required>
+                    <input type="text" id="numer_zamowienia" formControlName="numer_zamowienia" class="form-control" value="{{wybranareklamacja.numer_zamowienia}}" required>
                 </div>
     
                 <div class="form-group">
                     <label for="data">Data przyjęcia zgłoszenia</label>
-                    <input type="datetime" id="data" formControlName="data" class="form-control" value=" " required>
+                    <input type="datetime" id="data" formControlName="data"  class="form-control" value="{{wybranareklamacja.data}}" required>
                     <!-- {{wybranareklamacja.data.toMillis() | date:'dd/MM/yyyy hh:mm:ss a'}}-->
                 </div>
                 <div class="form-group">
