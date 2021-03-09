@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { from, Observable } from 'rxjs';
 import { Reklamacja } from '../reklamacja/reklamacja';
 import 'rxjs/add/operator/map'
 import { identifierModuleUrl } from '@angular/compiler';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 
@@ -16,8 +17,11 @@ import { identifierModuleUrl } from '@angular/compiler';
 })
 export class EdytujreklamacjeComponent implements OnInit {
 
-  wybranezamowienie = 'i9l4bqYbAAi2CKVlbBMY';
+  wybranezamowienie = '';
+  itemsCollection: AngularFirestoreCollection<Reklamacja>;
   public items: Observable<Reklamacja[]>;
+
+  szczegolyReklamacji;
 
   public wybranareklamacja = new Reklamacja();
 
@@ -28,6 +32,9 @@ export class EdytujreklamacjeComponent implements OnInit {
   @Input() sortowanie: any[];
 
   constructor(private route: ActivatedRoute, private http: HttpClient, public firestore: AngularFirestore){
+
+    this.itemsCollection = this.firestore.collection('reklamacja', ref => ref.orderBy('numer_zamowienia'));
+
   //  this.items = firestore.collection('reklamacja').valueChanges();
    this.items = this.firestore.collection('reklamacja').snapshotChanges().map(changes => {
       return changes.map(a => {
@@ -43,6 +50,24 @@ getItems(){
   return this.items;
 }
 
+
+onSubmit(){
+  
+    this.wybranareklamacja.numer_zamowienia = this.szczegolyReklamacji.value.numer_zamowienia;
+    this.wybranareklamacja.data = this.szczegolyReklamacji.value.data;
+    this.wybranareklamacja.status = this.szczegolyReklamacji.value.status;
+    this.wybranareklamacja.uwagi = this.szczegolyReklamacji.value.uwagi;
+
+    console.log(this.wybranareklamacja);
+    this.addItem(this.wybranareklamacja);
+  
+}
+
+addItem(reklamacja: Reklamacja)
+{
+  //this.itemsCollection.add(reklamacja);
+  this.itemsCollection.add(Object.assign({}, reklamacja));
+}
 
 ngOnInit(): void {
   
@@ -64,7 +89,15 @@ ngOnInit(): void {
         )
     });
 
- 
+    this.szczegolyReklamacji = new FormGroup({
+      numer_zamowienia: new FormControl(''),
+      data: new FormControl(''),
+      status: new FormControl(''),
+      uwagi: new FormControl(''),
+      zdjecia: new FormControl(''),
+    });
+
+
 
 
 }
