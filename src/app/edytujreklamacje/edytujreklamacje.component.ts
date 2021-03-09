@@ -23,6 +23,7 @@ export class EdytujreklamacjeComponent implements OnInit {
   itemsCollection: AngularFirestoreCollection<Reklamacja>;
   public items: Observable<Reklamacja[]>;
 
+  itemDoc;
   szczegolyReklamacji;
 
   public wybranareklamacja = new Reklamacja();
@@ -55,14 +56,29 @@ getItems(){
 
 onSubmit(){
   
+  if (this.wybranezamowienie === '')
+  {
+    this.nowareklamacja.numer_zamowienia = this.szczegolyReklamacji.value.numer_zamowienia;
+    this.nowareklamacja.data  = new Date(this.szczegolyReklamacji.value.data);
+    //this.nowareklamacja.data  = this.szczegolyReklamacji.value.data;
+    this.nowareklamacja.status = this.szczegolyReklamacji.value.status;
+    this.nowareklamacja.uwagi = this.szczegolyReklamacji.value.uwagi;
+    this.nowareklamacja.id = '';
+
+    this.addItem(this.nowareklamacja);
+  }
+  else {
     this.nowareklamacja.numer_zamowienia = this.szczegolyReklamacji.value.numer_zamowienia;
     this.nowareklamacja.data  = new Date(this.szczegolyReklamacji.value.data);
     this.nowareklamacja.status = this.szczegolyReklamacji.value.status;
     this.nowareklamacja.uwagi = this.szczegolyReklamacji.value.uwagi;
     this.nowareklamacja.id = '';
 
+    this.updateItem(this.nowareklamacja);
     console.log(this.nowareklamacja);
-    this.addItem(this.nowareklamacja);
+  }
+    
+
   
 }
 
@@ -70,6 +86,12 @@ addItem(reklamacja: Reklamacja)
 {
   //this.itemsCollection.add(reklamacja);
   this.itemsCollection.add(Object.assign({}, reklamacja));
+}
+
+updateItem(reklamacja: Reklamacja)
+{
+  this.itemDoc = this.firestore.doc(`reklamacja/${this.wybranezamowienie}`);
+  this.itemDoc.update(Object.assign({}, reklamacja));
 }
 
 ngOnInit(): void {
