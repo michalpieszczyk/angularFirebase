@@ -9,6 +9,7 @@ import { identifierModuleUrl } from '@angular/compiler';
 import { FormControl, FormGroup } from '@angular/forms';
 import { stringify } from '@angular/compiler/src/util';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
+import { textChangeRangeIsUnchanged } from 'typescript';
 
 
 
@@ -56,7 +57,7 @@ getItems(){
 
 onSubmit(){
   
-  if (this.wybranezamowienie === '')
+  if (this.wybranezamowienie === '' || !this.wybranezamowienie)
   {
     this.nowareklamacja.numer_zamowienia = this.szczegolyReklamacji.value.numer_zamowienia;
     this.nowareklamacja.data  = new Date(this.szczegolyReklamacji.value.data);

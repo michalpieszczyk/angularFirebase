@@ -32,12 +32,12 @@ export class EdytujproduktComponent implements OnInit {
 
   @Input() sortowanie: any[];
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, public firestore: AngularFirestore){
+  constructor(private route: ActivatedRoute, private http: HttpClient, public firestore2: AngularFirestore){
 
-    this.itemsCollection = this.firestore.collection('magazyn');
+    this.itemsCollection = this.firestore2.collection('magazyn');
 
   //  this.items = firestore.collection('reklamacja').valueChanges();
-   this.items = this.firestore.collection('magazyn').snapshotChanges().map(changes => {
+   this.items = this.firestore2.collection('magazyn').snapshotChanges().map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Produkt;
         data.id = a.payload.doc.id;
@@ -52,27 +52,30 @@ getItems(){
 }
 
 
-onSubmit(){
-  
-  if (this.wybranezamowienie === '')
+onSubmit2(){
+  console.log('Wybrane zamowienie' + this.wybranezamowienie);
+  if (this.wybranezamowienie === '' || !this.wybranezamowienie)
   {
     this.nowyprodukt.nazwa = this.szczegolyProduktu.value.nazwa;
     this.nowyprodukt.sztuk  = this.szczegolyProduktu.value.sztuk
     this.nowyprodukt.stan = this.szczegolyProduktu.value.stan;
-    this.nowyprodukt.cena_zakupu = this.szczegolyProduktu.value.cena_zakup;
+    this.nowyprodukt.cena_zakupu = this.szczegolyProduktu.value.cena_zakupu;
     this.nowyprodukt.notatka = this.szczegolyProduktu.value.notatka;
     this.nowyprodukt.id = '';
 
+    console.log('Dodaje nowy produkt');
     this.addItem(this.nowyprodukt);
+    console.log(this.nowyprodukt);
   }
   else {
     this.nowyprodukt.nazwa = this.szczegolyProduktu.value.nazwa;
     this.nowyprodukt.sztuk  = this.szczegolyProduktu.value.sztuk
     this.nowyprodukt.stan = this.szczegolyProduktu.value.stan;
-    this.nowyprodukt.cena_zakupu = this.szczegolyProduktu.value.cena_zakup;
+    this.nowyprodukt.cena_zakupu = this.szczegolyProduktu.value.cena_zakupu;
     this.nowyprodukt.notatka = this.szczegolyProduktu.value.notatka;
     this.nowyprodukt.id = '';
 
+    console.log('Aktualizuje produkt');
     this.updateItem(this.nowyprodukt);
     console.log(this.nowyprodukt);
   }
@@ -88,7 +91,7 @@ addItem(produkt: Produkt)
 
 updateItem(produkt: Produkt)
 {
-  this.itemDoc = this.firestore.doc(`magazyn/${this.wybranezamowienie}`);
+  this.itemDoc = this.firestore2.doc(`magazyn/${this.wybranezamowienie}`);
   this.itemDoc.update(Object.assign({}, produkt));
 }
 
@@ -106,7 +109,6 @@ ngOnInit(): void {
         if (this.wybranezamowienie == n.id)
           {
             this.wybranyprodukt = n; 
-            console.log(this.wybranyprodukt);
           }
         }
         )

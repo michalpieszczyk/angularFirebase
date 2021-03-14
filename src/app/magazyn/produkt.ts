@@ -1,10 +1,10 @@
 export class Produkt{
     id? = '';
     nazwa = '';
-    cena_zakupu = 0;
+    cena_zakupu = '';
     stan = '';
     notatka = '';    
-    sztuk = 0;
+    sztuk = '';
     
     constructor() {};
 
