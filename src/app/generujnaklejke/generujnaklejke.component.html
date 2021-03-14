@@ -1,7 +1,7 @@
 <div class="container">
     <h2>Podgląd naklejki z kodem QR</h2>
     <br>
-    <div class="list-group-item list-group-item-info">
+    <div class="list-group-item list-group-item-info" id='contentToConvert'>
         <div class="row">
             <div class="col-xl-3">
                 <ngx-qrcode
@@ -20,6 +20,7 @@
                 ID: {{wybranezamowienie}} <br>
                 QR: {{value}}<br><br>
                 <button type="button" style="margin-right: 10px;" class="btn btn-light btn-sm" [routerLink]="['/edytujprodukt', wybranezamowienie]">Edytuj produkt</button>
+                <button (click)="captureScreen()" style="margin-right: 10px;" class="btn btn-warning btn-sm">Pobierz PDF z naklejką</button>
             </div>
     </div>
 </div>
