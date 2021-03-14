@@ -15,6 +15,7 @@ import { EdytujproduktComponent } from './edytujprodukt/edytujprodukt.component'
 import { MagazynComponent } from './magazyn/magazyn.component';
 import { SuperSecretComponent } from './super-secret/super-secret.component';
 import { AuthGuard } from './services/auth.guard';
+import { GenerujnaklejkeComponent } from './generujnaklejke/generujnaklejke.component'
 
 const routes: Routes = [
   { path:'home', component: StartPageComponent  },
@@ -35,6 +36,8 @@ const routes: Routes = [
   { path: 'edytujreklamacje/:id', component: EdytujreklamacjeComponent},
   { path: 'edytujprodukt', component: EdytujproduktComponent},
   { path: 'edytujprodukt/:id', component: EdytujproduktComponent},
+  { path: 'generujnaklejke', component: GenerujnaklejkeComponent},
+  { path: 'generujnaklejke/:id', component: GenerujnaklejkeComponent},
   { path:'**', component: FrontPageComponent,  },
 
 ];

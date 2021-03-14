@@ -17,6 +17,8 @@ import { HttpService } from './http.service';
 import { HttpClientModule} from '@angular/common/http';
 import { WizytowkaComponent } from './wizytowka/wizytowka.component';
 import { ListaComponent } from './lista/lista.component';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -26,6 +28,7 @@ import { ReklamacjaComponent } from './reklamacja/reklamacja.component';
 import { MagazynComponent } from './magazyn/magazyn.component';
 import { EdytujproduktComponent } from './edytujprodukt/edytujprodukt.component';
 import { EdytujreklamacjeComponent } from './edytujreklamacje/edytujreklamacje.component';
+import { GenerujnaklejkeComponent } from './generujnaklejke/generujnaklejke.component';
 
 const config = {
   apiKey: "AIzaSyCcw_pQ616fVM2efYdtM4iwlHKKcoft6x4",
@@ -55,6 +58,7 @@ const config = {
     MagazynComponent,
     EdytujproduktComponent,
     EdytujreklamacjeComponent,
+    GenerujnaklejkeComponent,
   
     
   ],
@@ -66,7 +70,8 @@ const config = {
     ReactiveFormsModule,
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NgxQRCodeModule,
    ],
   providers: [HttpService],
   bootstrap: [AppComponent]
