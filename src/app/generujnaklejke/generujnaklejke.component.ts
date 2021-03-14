@@ -14,12 +14,13 @@ import { Produkt } from '../magazyn/produkt';
 })
 export class GenerujnaklejkeComponent implements OnInit {
 
+  wybranezamowienie = ''; 
+
   name = 'Angular ' + VERSION.major;
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
-  value = 'https://www.techiediaries.com/';
- 
-  wybranezamowienie = '';
+  value = 'http://localhost:4200/generujnaklejke/' + this.wybranezamowienie;
+
   
   itemsCollection: AngularFirestoreCollection<Produkt>;
   public items: Observable<Produkt[]>;
@@ -60,6 +61,7 @@ ngOnInit(): void {
   this.sub = this.route.params.subscribe(params => 
     {
       this.wybranezamowienie = params['id'];   
+      this.value = 'http://localhost:4200/generujnaklejke/' + this.wybranezamowienie;
     });
     
 
@@ -70,8 +72,7 @@ ngOnInit(): void {
           {
             this.wybranyprodukt = n; 
           }
-        }
-        )
+        })
     });
 
 

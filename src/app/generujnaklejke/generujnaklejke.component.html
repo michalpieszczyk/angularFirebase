@@ -7,7 +7,7 @@
                 <ngx-qrcode
                 [elementType]="elementType"
                 [errorCorrectionLevel]="correctionLevel"
-                [value]="value"
+                [value] = "value"
                 cssClass="bshadow"></ngx-qrcode>
             </div>
 
@@ -18,6 +18,8 @@
                 Cena zakupu: {{ wybranyprodukt.cena_zakupu }}<br>
                 Notatka: {{ wybranyprodukt.notatka }}<br>
                 ID: {{wybranezamowienie}} <br>
+                QR: {{value}}<br><br>
+                <button type="button" style="margin-right: 10px;" class="btn btn-light btn-sm" [routerLink]="['/edytujprodukt', wybranezamowienie]">Edytuj produkt</button>
             </div>
     </div>
 </div>
