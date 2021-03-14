@@ -1,7 +1,23 @@
-<ngx-qrcode
-  [elementType]="elementType"
-  [errorCorrectionLevel]="correctionLevel"
-  [value]="value"
-  cssClass="bshadow"></ngx-qrcode>
-  <textarea [(ngModel)] = "value"></textarea>
-  
+<div class="container">
+    <h2>Podgląd naklejki z kodem QR</h2>
+    <br>
+    <div class="list-group-item list-group-item-info">
+        <div class="row">
+            <div class="col-xl-3">
+                <ngx-qrcode
+                [elementType]="elementType"
+                [errorCorrectionLevel]="correctionLevel"
+                [value]="value"
+                cssClass="bshadow"></ngx-qrcode>
+            </div>
+
+            <div class="col">
+                <b>Produkt: {{ wybranyprodukt.nazwa }}</b><br>
+                Ilość: {{ wybranyprodukt.sztuk }}<br>
+                Stan: {{ wybranyprodukt.stan }}<br>
+                Cena zakupu: {{ wybranyprodukt.cena_zakupu }}<br>
+                Notatka: {{ wybranyprodukt.notatka }}<br>
+                ID: {{wybranezamowienie}} <br>
+            </div>
+    </div>
+</div>
