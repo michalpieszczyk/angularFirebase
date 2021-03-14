@@ -80,7 +80,7 @@ onSubmit2(){
     console.log(this.nowyprodukt);
   }
     
-
+  window.location.href = 'http://localhost:4200/magazyn';
   
 }
 

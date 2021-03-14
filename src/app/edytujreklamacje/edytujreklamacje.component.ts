@@ -79,6 +79,7 @@ onSubmit(){
     console.log(this.nowareklamacja);
   }
     
+  window.location.href = 'http://localhost:4200/reklamacja';
 
   
 }
