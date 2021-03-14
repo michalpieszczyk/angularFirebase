@@ -5,6 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit, Output, ViewChild, ElementRef, Input } from '@angular/core';
 import { NONE_TYPE } from '@angular/compiler';
 import { Observable } from 'rxjs';
+import { Produkt } from './produkt';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { Observable } from 'rxjs';
 })
 export class MagazynComponent implements OnInit {
 
-  public items: Observable<any[]>;
+  //public items: Observable<any[]>;
 
 
   wybranakategoria = '';
@@ -22,9 +23,20 @@ export class MagazynComponent implements OnInit {
 
   @Input() sortowanie: any[];
 
-   constructor(private route: ActivatedRoute, private http: HttpClient, private firestore: AngularFirestore,private db: AngularFirestore){
-    this.items = db.collection('magazyn').valueChanges();
-   }
+  public items: Observable<Produkt[]>;
+
+  constructor(private route: ActivatedRoute, private http: HttpClient, public firestore: AngularFirestore){
+    //  this.items = firestore.collection('reklamacja').valueChanges();
+     this.items = this.firestore.collection('magazyn').snapshotChanges().map(changes => {
+        return changes.map(a => {
+          const data = a.payload.doc.data() as Produkt;
+          data.id = a.payload.doc.id;
+          return data;
+
+        })
+      })
+  
+     }
 
 
   private sub: any;

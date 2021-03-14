@@ -1,38 +1,38 @@
 <div class="container">
-    <form [formGroup]="companyInfo" (ngSubmit)="UpdateCompanyInfo()">
-        <h2>Edytuj produkt</h2><br>
+    <form [formGroup]="szczegolyProduktu" (ngSubmit)="onSubmit()">
+        <h2>Edytuj produkt {{wybranezamowienie}}  </h2><br>
         <div class="row">
                
             <div class="col-xl-12">
     
                 <div class="form-group">
                     <label for="nazwa">Nazwa produktu</label>
-                    <input type="text" id="nazwa" formControlName="nazwa" class="form-control" value="{{pobranaWizytowka.company_name}}" required>
+                    <input type="text" id="nazwa" formControlName="nazwa" class="form-control" value="{{wybranyprodukt.nazwa}}" required>
                 </div>
     
                 <div class="form-group">
                     <label for="sztuk">Ilość sztuk</label>
-                    <input type="text" id="sztuk" formControlName="sztuk" class="form-control" value="{{pobranaWizytowka.city}}" required>
+                    <input type="text" id="sztuk" formControlName="sztuk" class="form-control" value="{{wybranyprodukt.sztuk}}" required>
                 </div>
 
                 <div class="form-group">
                     <label class="stan"  for="stan">Stan produktu</label>
-                    <select formControlName="stan" [(ngModel)]=pobranaWizytowka.category class="custom-select my-1 mr-sm-2" id="stan">
+                    <select formControlName="stan" [(ngModel)]=wybranyprodukt.stan class="custom-select my-1 mr-sm-2" id="stan">
                      <!--<option *ngFor="let opt of question.options" [value]="opt.key" [selected]="opt.selected == true">{{opt.selected+opt.value}}</option>-->
-                      <option value="Ok">Ok</option>
-                      <option value="Uszkodzony">Uszkodzony</option>
-                      <option value="Naprawiony">Naprawiony</option>
+                      <option value="ok">Ok</option>
+                      <option value="uszkodzony">Uszkodzony</option>
+                      <option value="naprawiony">Naprawiony</option>
                     </select>
               </div>
     
                 <div class="form-group">
                     <label for="cena_zakupu">Cena zakupu (netto)</label>
-                    <input type="text" id="cena_zakupu" class="form-control" formControlName="cena_zakupu" value="{{pobranaWizytowka.post_code}}" required>
+                    <input type="text" id="cena_zakupu" class="form-control" formControlName="cena_zakupu" value="{{wybranyprodukt.cena_zakupu}}" required>
                 </div>
     
                 <div class="form-group">
                     <label for="notatka">Notatka</label>
-                    <textarea cols="100" rows="5"  id="notatka" class="form-control" formControlName="notatka" value="{{pobranaWizytowka.address}}" required></textarea>
+                    <textarea cols="100" rows="5"  id="notatka" class="form-control" formControlName="notatka" value="{{wybranyprodukt.notatka}}" required></textarea>
                 </div>
     
             </div>

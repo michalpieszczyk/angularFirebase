@@ -20,7 +20,7 @@
                     Stan: {{ item.stan }}<br>
                     Cena zakupu: {{ item.cena_zakupu }}<br>
                     Notatka: {{ item.notatka }}<br>
-                    <button type="button" style="margin-right: 10px;" class="btn btn-light btn-sm" [routerLink]="['/edytujprodukt', item.numer_zamowienia]">Edytuj produkt</button>
+                    <button type="button" style="margin-right: 10px;" class="btn btn-light btn-sm" [routerLink]="['/edytujprodukt', item.id]">Edytuj produkt</button>
             </li>
         </ng-container> 
     </ul>
