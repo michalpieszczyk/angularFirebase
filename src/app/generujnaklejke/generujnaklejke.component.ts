@@ -23,7 +23,7 @@ export class GenerujnaklejkeComponent implements OnInit {
   name = 'Angular ' + VERSION.major;
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
-  value = 'http://localhost:4200/generujnaklejke/' + this.wybranezamowienie;
+  value = 'https://michalpieszczyk.github.io/angularFirebase/generujnaklejke/' + this.wybranezamowienie;
 
   
   itemsCollection: AngularFirestoreCollection<Produkt>;
@@ -73,7 +73,7 @@ ngOnInit(): void {
   this.sub = this.route.params.subscribe(params => 
     {
       this.wybranezamowienie = params['id'];   
-      this.value = 'http://localhost:4200/generujnaklejke/' + this.wybranezamowienie;
+      this.value = 'https://michalpieszczyk.github.io/angularFirebase/generujnaklejke/' + this.wybranezamowienie;
     });
     
 
