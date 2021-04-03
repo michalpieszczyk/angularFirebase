@@ -108,9 +108,12 @@ updateItem(reklamacja: Reklamacja)
   this.itemDoc.update(Object.assign({}, reklamacja));
 }
 
+variable2 = true;
 variable = false;
-showContent() {
-this.variable = true;
+
+showContent() 
+{
+  this.variable = true;
 }
 
 
@@ -139,6 +142,11 @@ ngOnInit(): void {
     {
       this.wybranezamowienie = params['id'];   
     });
+
+    if (this.wybranezamowienie === '' || !this.wybranezamowienie)
+    {
+      this.variable2 = false;
+    }
     
     this.items.forEach(element => {
       element.forEach(n => {

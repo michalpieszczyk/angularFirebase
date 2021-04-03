@@ -1,5 +1,5 @@
 <div class="container">
-
+        <div *ngIf='variable2'>
         <h2>Zgłoszenie reklamacyjne {{ wybranezamowienie }}</h2><br>
 
         <b>Szczegóły reklamacji:</b><br>
@@ -11,9 +11,9 @@
         <b>Numer zamówienia:</b> {{ wybranareklamacja.numer_zamowienia }}<br>
         <b>Data przyjęcia zgłoszenia:</b> {{ wybranareklamacja.data | date:'longDate' }}<br>
         <b>Status zgłoszenia:</b> {{ wybranareklamacja.status }}<br>
-        <b>Uwagi:</b> {{ wybranareklamacja.uwagi }}<br><br>
-
-        <button (click)='showContent()' style="margin-right: 10px;" class="btn btn-primary btn-sm">Wygeneruj etykietę</button>
+        <b>Uwagi:</b> {{ wybranareklamacja.uwagi }}<br>
+    <br>
+        <button (click)='showContent()' style="margin-right: 10px;" class="btn btn-primary btn-sm">Wygeneruj etykietę</button></div><br>
         <button (click)="captureScreen()" style="margin-right: 10px;" *ngIf='variable' class="btn btn-warning btn-sm">Pobierz etykietę</button><br>
         <br>
         <div id="contentToConvert" *ngIf='variable'>
