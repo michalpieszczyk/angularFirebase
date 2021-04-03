@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container list-group-item list-group-item">
     <h2>Podgląd naklejki z kodem QR</h2>
     <br>
     <div class="list-group-item list-group-item-info">
-        <div class="row" id='contentToConvert'>
+        <div class="row " id='contentToConvert'>
             <div class="col-xl-3">
                 <ngx-qrcode
                 [elementType]="elementType"
@@ -18,8 +18,7 @@
                 Stan: {{ wybranyprodukt.stan }}<br>
                 Cena zakupu: {{ wybranyprodukt.cena_zakupu }}<br>
                 Notatka: {{ wybranyprodukt.notatka }}<br>
-                ID: {{wybranezamowienie}} <br>
-                
+                ID: {{wybranezamowienie}} <br> 
             </div>
         </div><br>
             <button type="button" style="margin-right: 10px;" class="btn btn-light btn-sm" [routerLink]="['/edytujprodukt', wybranezamowienie]">Edytuj produkt</button>

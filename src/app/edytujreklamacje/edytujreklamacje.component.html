@@ -13,7 +13,7 @@
         <b>Status zgłoszenia:</b> {{ wybranareklamacja.status }}<br>
         <b>Uwagi:</b> {{ wybranareklamacja.uwagi }}<br>
     <br>
-        <button (click)='showContent()' style="margin-right: 10px;" class="btn btn-primary btn-sm">Wygeneruj etykietę</button></div><br>
+        <button (click)='showContent()' style="margin-right: 10px;" class="btn btn-primary btn-sm">Wygeneruj etykietę</button></div>
         <button (click)="captureScreen()" style="margin-right: 10px;" *ngIf='variable' class="btn btn-warning btn-sm">Pobierz etykietę</button><br>
         <br>
         <div id="contentToConvert" *ngIf='variable'>
@@ -42,12 +42,10 @@
                 </div>
             </div></div><br>
         </div>
-
         <form [formGroup]="szczegolyReklamacji" (ngSubmit)="onSubmit()">
-        <hr>
-        <h2>Edytuj zgłoszenie reklamacyjne </h2><br>
-        <div class="row">
-               
+        
+        <div class="row list-group-item list-group-item" >
+            <h2>Edytuj zgłoszenie reklamacyjne </h2><br>
        
              <div class="col-xl-12">
                 
@@ -76,8 +74,9 @@
                 </div>
     
             </div>
+            <button class="btn btn-primary" type="submit">Zapisz i zaktualizuj zgłoszenie reklamacyjne</button>
         </div>
-        <button class="btn btn-primary" type="submit">Zapisz i zaktualizuj zgłoszenie reklamacyjne</button>
+        
     </form>
 
     

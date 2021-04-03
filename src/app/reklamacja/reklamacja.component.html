@@ -23,7 +23,7 @@
                     Data zgłoszenia: {{item.data.toMillis() | date:'dd/MM/yyyy hh:mm:ss a'}}<br>
                     <button type="button" style="margin-right: 10px;" class="btn btn-warning btn-sm" [routerLink]="['/edytujreklamacje', item.id]">Szczegóły reklamacji</button>
                     <a style="margin-right: 10px;" class="btn btn-light btn-sm" href="https://panel-d.baselinker.com/orders.php#order:{{item.numer_zamowienia}}">Przejdź do zamówienia w Baselinker</a>      
-            </li>
+            </li><br>
         </ng-container> 
     </ul>
 </div>

@@ -58,11 +58,6 @@ export class GenerujnaklejkeComponent implements OnInit {
     })
    }
 
-    
-
-  
-  
-
 getItems(){
   return this.items;
 }
@@ -76,8 +71,6 @@ ngOnInit(): void {
       this.value = 'https://michalpieszczyk.github.io/angularFirebase/generujnaklejke/' + this.wybranezamowienie;
     });
     
-
-
     this.items.forEach(element => {
       element.forEach(n => {
         if (this.wybranezamowienie == n.id)
@@ -105,6 +98,5 @@ public captureScreen()
       pdf.save('naklejka.pdf'); // Generated PDF   
     });  
   }  
-
 }
 

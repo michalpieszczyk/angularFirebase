@@ -1,8 +1,8 @@
 <div class="container">
     <form [formGroup]="szczegolyProduktu" (ngSubmit)="onSubmit2()">
-        <h2>Edytuj produkt {{ wybranezamowienie }}  </h2><br>
-        <div class="row">
-               
+        
+        <div class="row list-group-item list-group-item" >
+            <h2>Edytuj produkt {{ wybranezamowienie }}  </h2><br>
             <div class="col-xl-12">
     
                 <div class="form-group">
@@ -36,7 +36,8 @@
                 </div>
     
             </div>
+            <button class="btn btn-primary" type="submit">Zapisz i zaktualizuj dane produtku</button>
         </div>
-        <button class="btn btn-primary" type="submit">Zapisz i zaktualizuj dane produtku</button>
+        
     </form>
     </div>
