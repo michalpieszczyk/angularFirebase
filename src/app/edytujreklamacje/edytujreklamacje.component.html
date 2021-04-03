@@ -1,8 +1,51 @@
 <div class="container">
 
-    <form [formGroup]="szczegolyReklamacji" (ngSubmit)="onSubmit()">
-        <h2>Edytuj zgłoszenie reklamacyjne {{ wybranezamowienie }}</h2><br>
-      
+        <h2>Zgłoszenie reklamacyjne {{ wybranezamowienie }}</h2><br>
+
+        <b>Szczegóły reklamacji:</b><br>
+        {{ klient.nazwa }}<br>
+        {{ klient.adres }}<br>
+        {{ klient.kod_pocztowy }} {{ klient.miejscowosc }}<br><br>
+        <b>telefon:</b> {{ klient.telefon }}<br>
+        <b>email:</b> {{ klient.email }}<br><br>
+        <b>Numer zamówienia:</b> {{ wybranareklamacja.numer_zamowienia }}<br>
+        <b>Data przyjęcia zgłoszenia:</b> {{ wybranareklamacja.data | date:'longDate' }}<br>
+        <b>Status zgłoszenia:</b> {{ wybranareklamacja.status }}<br>
+        <b>Uwagi:</b> {{ wybranareklamacja.uwagi }}<br><br>
+
+        <button (click)='showContent()' style="margin-right: 10px;" class="btn btn-primary btn-sm">Wygeneruj etykietę</button>
+        <button (click)="captureScreen()" style="margin-right: 10px;" *ngIf='variable' class="btn btn-warning btn-sm">Pobierz etykietę</button><br>
+        <br>
+        <div id="contentToConvert" *ngIf='variable'>
+            <div class="list-group-item list-group-item">
+            <div class="row">
+                <div style="margin-left: 20px;" class="col-xl-7">
+                    <br>
+                    {{kontakt.nazwa}}<br>
+                    {{kontakt.adres}}<br>
+                    {{kontakt.kod_pocztowy}} {{kontakt.miejscowosc}}<br>
+                    tel. {{kontakt.telefon}}<br>
+                </div>
+                <div>
+                    <div style="text-align: center;" class="list-group-item list-group-item">
+                        OPŁATA POBRANA<br><br>
+                        Umowa z {{umowapoczta.strona}}<br>
+                        z dnia {{umowapoczta.data}}<br>
+                        Nadano w {{umowapoczta.oddzial}}<br>
+                    </div>
+                    <br><br><br>
+                    <h5>{{ klient.nazwa }}</h5>
+                    <h6>{{ klient.adres }}</h6>
+                    <h6>{{ klient.kod_pocztowy }} {{ klient.miejscowosc }}</h6>
+                    <b>tel.</b> {{ klient.telefon }}<br><br>
+                    <p>Reklamacja zamówienia {{wybranareklamacja.numer_zamowienia }}</p><br>
+                </div>
+            </div></div><br>
+        </div>
+
+        <form [formGroup]="szczegolyReklamacji" (ngSubmit)="onSubmit()">
+        <hr>
+        <h2>Edytuj zgłoszenie reklamacyjne </h2><br>
         <div class="row">
                
        
